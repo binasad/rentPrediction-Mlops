@@ -1,4 +1,4 @@
-# 🏙️ RentSphere Intelligence Engine
+# RentSphere Intelligence Engine
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED)
@@ -7,13 +7,13 @@
 
 An End-to-End MLOps pipeline that scrapes real-estate data, trains a price prediction model, and serves predictions via a scalable API. Designed for high-availability using Kubernetes.
 
-## 🏗️ Architecture
+## Architecture
 1.  **Data Pipeline:** Selenium scraper harvesting real-time rental listings (Zameen.com).
 2.  **Preprocessing:** Pandas pipeline for currency conversion (Crore/Lakh to Integer) and Unit Standardization (Marla/Kanal).
 3.  **Model:** Linear Regression model serialized with Joblib.
 4.  **Deployment:** Flask API containerized with Docker and orchestrated via Kubernetes.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Run with Docker (Recommended)
 The fastest way to test the prediction engine.
