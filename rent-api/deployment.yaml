@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment        # <--- We want a Deployment (a manager)
+metadata:
+  name: rent-predictor  # <--- Name of the fleet
+spec:
+  replicas: 3           # <--- Scale! We want 3 copies running at once.
+  selector:
+    matchLabels:
+      app: rent-api
+  template:             # <--- The blueprint for each copy
+    metadata:
+      labels:
+        app: rent-api
+    spec:
+      containers:
+      - name: api-container
+        image: shersaad/rent-price-predictor:v1  # <--- Pulling YOUR image from the cloud
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
