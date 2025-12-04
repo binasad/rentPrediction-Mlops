@@ -12,7 +12,24 @@ An End-to-End MLOps pipeline that scrapes real-estate data, trains a price predi
 2.  **Preprocessing:** Pandas pipeline for currency conversion (Crore/Lakh to Integer) and Unit Standardization (Marla/Kanal).
 3.  **Model:** Linear Regression model serialized with Joblib.
 4.  **Deployment:** Flask API containerized with Docker and orchestrated via Kubernetes.
+   
 
+## 🏗️ Architecture Breakdown
+
+   
+
+
+
+
+```mermaid
+graph TD
+    A[Selenium Robot] -->|Scrapes Zameen.com| B(Raw CSV)
+    B -->|Pandas| C{Preprocessing}
+    C -->|One-Hot Encoding| D[Model Training]
+    D -->|Export .pkl| E[Flask API]
+    E -->|Dockerize| F[Container Registry]
+    F -->|Pull| G[Kubernetes Cluster]
+```
 ## Quick Start
 
 ### 1. Run with Docker (Recommended)
@@ -24,3 +41,4 @@ docker pull shersaad/rent-price-predictor:v1
 
 # Run the container (Map port 5000)
 docker run -p 5000:5000 shersaad/rent-price-predictor:v1
+```
